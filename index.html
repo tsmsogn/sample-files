@@ -1,5 +1,5 @@
 ---
-layout: none
+layout: null
 title: Sample Files
 ---
 <!DOCTYPE html>
@@ -24,6 +24,7 @@ title: Sample Files
   {% assign doc_exts = "doc,docx" | split: "," %}
   {% assign pdf_exts = "pdf" | split: "," %}
   {% assign office_exts = "ppt,pptx,xls,xlsx" | split: "," %}
+  {% assign image_exts = "png,jpg,jpeg,gif,webp,svg" | split: "," %}
 </head>
 <body>
   <h1>ファイル一覧（files/ 配下）</h1>
@@ -33,7 +34,7 @@ title: Sample Files
   {% assign items = "" | split: "" %}
   {% for f in targets %}
     {% assign ext = f.extname | remove: "." | downcase %}
-    {% if doc_exts contains ext or pdf_exts contains ext or office_exts contains ext %}
+    {% if doc_exts contains ext or pdf_exts contains ext or office_exts contains ext or image_exts contains ext %}
       {% assign items = items | push: f %}
     {% endif %}
   {% endfor %}
@@ -51,7 +52,9 @@ title: Sample Files
             <div class="ext">.{{ ext }}</div>
           </div>
           <div class="actions">
-            {% if ext == "pdf" %}
+            {% if image_exts contains ext %}
+              <img src="{{ f.path | absolute_url }}" alt="{{ filename }}" style="max-width:320px;max-height:200px;height:auto;border:1px solid #eee;border-radius:6px;">
+            {% elsif ext == "pdf" %}
               <a class="button" href="{{ f.path | absolute_url }}" target="_blank" rel="noopener">PDFを開く</a>
             {% elsif ext == "doc" or ext == "docx" or ext == "ppt" or ext == "pptx" or ext == "xls" or ext == "xlsx" %}
               {% assign absolute = f.path | absolute_url %}
