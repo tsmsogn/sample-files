@@ -1,0 +1,19 @@
+title: "Sample Files"
+description: "GitHub Pages で PDF/Word を確認できる簡易ビューア"
+# 公開URLに合わせて後で修正してください（ユーザーページ: https://<user>.github.io、プロジェクトページ: https://<user>.github.io/<repo>）
+url: "https://<your-username>.github.io"
+# プロジェクトページの場合は "/<repo>" を設定。ユーザーページの場合は ""（空文字）にしてください。
+baseurl: "/sample-files"
+
+theme: null
+markdown: kramdown
+
+# GitHub Pages 既定のメタデータプラグイン（環境により自動有効）
+plugins:
+  - jekyll-github-metadata
+
+# ビルド対象から除外したいものがあればここに追記
+exclude:
+  - README.md
+
+
