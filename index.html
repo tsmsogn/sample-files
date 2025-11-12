@@ -56,7 +56,6 @@ title: Sample Files
             {% elsif ext == "doc" or ext == "docx" or ext == "ppt" or ext == "pptx" or ext == "xls" or ext == "xlsx" %}
               {% assign absolute = f.path | absolute_url %}
               {% assign encoded = absolute | uri_escape %}
-              <a class="button" href="https://view.officeapps.live.com/op/view.aspx?src={{ encoded }}" target="_blank" rel="noopener">Office Viewerで開く</a>
               <a class="button" href="{{ f.path | absolute_url }}" target="_blank" rel="noopener">直接開く/ダウンロード</a>
             {% else %}
               <a class="button" href="{{ f.path | absolute_url }}" target="_blank" rel="noopener">開く</a>
